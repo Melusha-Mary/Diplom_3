@@ -19,3 +19,6 @@ class URLs:
 class Browsers:
     CHROME = 'chrome'
     FIREFOX = 'firefox'
+
+class Timeout:
+    DEFAULT_TIMEOUT = 10

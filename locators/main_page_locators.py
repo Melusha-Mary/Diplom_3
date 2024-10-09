@@ -23,3 +23,5 @@ class MainPageLocators:
     INGREDIENT_NAME_IN_DETAILS_WINDOW = By.XPATH, "//*[contains(@class, 'Modal_modal_opened')]/div/div/p"
     # Статус заказа в окне подтверждения заказа
     ORDER_STATUS_START_TO_PREPARE = By.XPATH, "//*[contains(@class, 'Modal_modal__text')]/p[1]"
+
+    LOADING_ANIMATION = By.XPATH, "//*[@alt='loading animation']/parent::div"

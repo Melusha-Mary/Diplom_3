@@ -2,12 +2,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait as DrvWait
 from seletools.actions import drag_and_drop
-
+from data import Timeout
+from main_page_locators import MainPageLocators
 
 class BasePage:
-    DEFAULT_TIMEOUT = 10
-    LOADING_ANIMATION = By.XPATH, "//*[@alt='loading animation']/parent::div"
-
     def __init__(self, web_driver):
         self.web_driver = web_driver
 
@@ -54,3 +52,14 @@ class BasePage:
 
     def drag_and_drop(self, source_drag, target_drop):
         drag_and_drop(self.web_driver, source_drag, target_drop)
+
+    def add_order(main_page,
+                  login_user):  # Вспомогательный метод для создания заказа и получения его номера из окна подтверждения.
+        main_page.add_ingredient_to_order(0)
+        main_page.add_ingredient_to_order(3)
+        main_page.click_place_order_button()
+        main_page.wait_loading()
+        order_number = main_page.get_order_number_from_confirm_popup()
+        main_page.click_cross_button_in_popup_window()
+
+        return order_number

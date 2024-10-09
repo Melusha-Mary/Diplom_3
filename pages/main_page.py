@@ -63,3 +63,5 @@ class MainPage(BasePage):
     def get_ingredients_counter_(self, index):
         counters = self.get_visible_elements(MainPageLocators.INGREDIENTS_COUNTERS)
         return int(counters[index].text)
+
+   

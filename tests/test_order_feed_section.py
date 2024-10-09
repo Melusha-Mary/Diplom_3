@@ -1,6 +1,6 @@
 import allure
 
-from helpers import add_order
+from pages.base_page import add_order
 
 
 @allure.suite('Лента заказов')
