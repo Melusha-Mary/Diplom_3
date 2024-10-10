@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait as DrvWait
 from seletools.actions import drag_and_drop
 from data import Timeout
-from main_page_locators import MainPageLocators
+from locators.main_page_locators import MainPageLocators
 
 class BasePage:
     def __init__(self, web_driver):
@@ -43,9 +43,6 @@ class BasePage:
 
     def get_element(self, locator):
         return self.web_driver.find_element(*locator)
-
-    def get_visible_element(self, locator, timeout=DEFAULT_TIMEOUT):
-        return DrvWait(self.web_driver, timeout).until((ec.visibility_of_element_located(locator)))
 
     def get_visible_elements(self, locator, timeout=DEFAULT_TIMEOUT):
         return DrvWait(self.web_driver, timeout).until((ec.visibility_of_all_elements_located(locator)))
